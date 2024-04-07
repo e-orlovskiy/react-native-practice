@@ -12,7 +12,7 @@ import { CustomAlert } from './src/components/CustomAlert'
 import { CustomButton } from './src/components/CustomButton'
 
 export default function App() {
-	const [isVisible, setIsVisible] = React.useState(false)
+	const [error, setError] = React.useState(false)
 
 	// * КНОПКИ 1-3 *
 	// Создаем отдельный экземпляр Animated.Value для каждой кнопки
@@ -102,10 +102,10 @@ export default function App() {
 			<CustomButton
 				text='CustomAlert'
 				onPress={() => {
-					setIsVisible(!isVisible)
+					setError(!error)
 				}}
 			/>
-			<CustomAlert visible={isVisible} text='ttt' />
+			<CustomAlert error={error} text='Всплывающее уведомление' />
 			<StatusBar style='auto' />
 		</View>
 	)
@@ -117,6 +117,7 @@ const styles = StyleSheet.create({
 		backgroundColor: '#fff',
 		alignItems: 'center',
 		justifyContent: 'center',
-		gap: 60
+		gap: 60,
+		padding: 5
 	}
 })
